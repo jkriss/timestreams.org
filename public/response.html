@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Time Streams</title>
     <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href=
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2MQERH5DwABuAE8RBfWTAAAAABJRU5ErkJggg==">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="./response.js" charset="utf-8"></script>
   </head>
@@ -12,5 +14,28 @@
     <code>GET</code><code id="timestream-url">/status</code>
     <h3>Response</h3>
     <pre id="response"></pre>
+
+    <p>
+      There are three headers required for the Time Streams protocol:
+      <code>Time-Streams-Version</code>, <code>Post-Time</code>, and
+      <code>Link</code>.
+    </p>
+    <p>
+      <code>Time-Streams-Version</code> is the version of the Time Streams
+      protocol that the server's using.
+    </p>
+    <p>
+      <code>Post-Time</code> is the logical time for this resource. That's
+      typically the time it was created, but it can be something else, like
+      the time in history that's marked by this resource. It uses the
+      <a href="https://tools.ietf.org/html/rfc7231#section-7.1.1.2" target="_blank">HTTP-date</a>
+      format.
+    </p>
+    <p>
+      <code>Link</code> is an existing standard HTTP header described in
+      the <a href="https://tools.ietf.org/html/rfc8288" target="_blank">Web Linking RFC</a>.
+      The "self" relation is the permalink for this post, and the "previous"
+      relation is the url for the previous post in the stream.
+    </p>
   </body>
 </html>
