@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const res = await fetch(url)
   const lines = []
   lines.push(`HTTP/1.1 ${res.status} ${res.statusText}`)
-  const includedHeaders = ['Date', 'Content-Type', 'Link', 'Time-Stream-Version']
+  const includedHeaders = ['Date', 'Content-Type', 'Content-Length', 'Last-Modified', 'Time-Streams-Version', 'Post-Time', 'Link']
   for (const name of includedHeaders) {
     lines.push(`${name}: ${res.headers.get(name)}`)
   }

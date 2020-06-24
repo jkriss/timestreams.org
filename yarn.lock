@@ -5232,10 +5232,10 @@ through2@^2.0.0, through2@~2.0.3:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
 
-time-streams@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/time-streams/-/time-streams-0.0.2.tgz#6353fe0549aaf9218551173b87d3e23baf6dd106"
-  integrity sha512-eHHFteCd+oLO8vD76E1Aq6flwzzPjCOahrgrqp0OGihvKHK/5JBBk0sq+wM6N2WaGA9tepik8fj9rCwjGZJQyw==
+time-streams@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/time-streams/-/time-streams-0.0.4.tgz#f95719e75ab38fefe81237f232f47983c75fafb6"
+  integrity sha512-UrjRfApA3RbVVH7C0mJOKcw9UUtNVcmXB9uN80YXWU8qWmyFRMxN74HkkviiH9AUbPH3MF8PPnbqv7Dyy4huMA==
   dependencies:
     base32.js "^0.1.0"
     body-parser "^1.19.0"
