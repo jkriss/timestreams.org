@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "dev": "PORT=3434 node src/server.js",
+    "start": "node src/server.js",
     "watch": "parcel watch public/*.html",
     "build": "rimraf dist ; parcel build public/*.html"
   },
