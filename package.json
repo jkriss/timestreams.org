@@ -17,7 +17,7 @@
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "github-markdown-css": "^4.0.0",
-    "time-streams": "^0.0.1"
+    "time-streams": "^0.0.2"
   },
   "devDependencies": {
     "fecha": "^4.2.0",
