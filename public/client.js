@@ -16,7 +16,7 @@ async function getMessage(url) {
       const url = URL.createObjectURL(await res.blob())
       data = `<img src="${url}">`
     }
-    const date = res.headers.get('date')
+    const date = res.headers.get('post-time')
     return { body: data, contentType: type, date, t: new Date(date), url, links }
   } else {
     console.warn(res.status)
