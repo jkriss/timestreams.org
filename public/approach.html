@@ -13,29 +13,62 @@
     <h2>Approach</h2>
 
     <p>
-      <strong>We want something simple.</strong> It should be both easy to
-      understand, and relatively easy to implement.
+      If we think about our digital lives, an substantial amount of the material
+      fits the description of <strong>posts associated with times</strong>. These could be blog posts, journal entries, chat messages, photos, videos,
+      audio recordings&mdash;prose, media, and structured data.
     </p>
 
     <p>
-      <strong>We want to invent as little as possible.</strong> We have well
-      understood, well adopted, and well supported tools that can do nearly
-      all of what we need.
+      We can then imagine viewing these streams either on their own, or in combination;
+      interleaved in time, or side by side.
+    </p>
+
+    <p>
+      How do we do that in a way that might achieve the lofty goals in <a href="/manifesto">the manifesto</a>?
+    </p>
+
+    <p>
+      Let's think about some of the goals.
     </p>
 
     <hr>
 
     <p>
-      The Time Streams protocol uses HTTP, three HTTP headers, and
+      <strong>We want something simple.</strong> It should be both easy to
+      understand, and relatively easy to implement.
+    </p>
+
+    <p>
+      <strong>We want to invent as little as possible.</strong> We already have well
+      understood, well adopted, and well supported tools that can do nearly
+      all of what we need.
+    </p>
+
+    <p>
+      <strong>We want to minimize assumptions around use.</strong> By defining
+      the absolute minimum needed to achieve the core functionality, we can
+      develop patterns that work in a variety of contexts, including those
+      beyond our current imagination.
+    </p>
+
+    <hr>
+
+    <p>
+      The <strong>Time Streams protocol</strong> uses HTTP, three HTTP headers, and
       one optional query string parameter. There are no new formats, data types,
       or custom schemas. It can be implemented as an enhancement on top of a
       standard HTTP server.
     </p>
 
     <p>
+      The <strong>Time Streams Day Archive Format</strong> is a way of storing
+      timestamped resources on disk.
+    </p>
+
+    <p>
       Fetching a single post is a regular HTTP call. The javascript client for
       fetching multiple posts in a stream is well under 1KB minified and gzipped,
-      and it contains some fancy features.
+      and it's only that big because it contains some fancy features.
     </p>
 
     <p>

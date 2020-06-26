@@ -6,7 +6,8 @@
     <link rel="icon" type="image/png" href=
 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2MQERH5DwABuAE8RBfWTAAAAABJRU5ErkJggg==">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="./statuses.js" charset="utf-8"></script>
+    <script src="./client.js" charset="utf-8"></script>
+    <script src="./history.js" charset="utf-8"></script>
     <style media="screen">
       #status-feed {
         background: #fafafa;
@@ -19,6 +20,9 @@
       .status .date {
         color: #aaa;
         font-size: 0.8rem;
+      }
+      .status img {
+        max-width: 200px;
       }
     </style>
   </head>
@@ -33,7 +37,8 @@
     </p>
 
     <p>
-      This example starts at <code><a href="/status">/status</a></code> and traverses backwards to build a feed.
+      This example starts at <code><a href="/status">/status</a></code> and traverses backwards to build a list of recent posts, then renders the set. Multiple
+      media types coexist quite happily–they're all just HTTP responses.
     </p>
 
     <p>

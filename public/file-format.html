@@ -11,14 +11,19 @@
   <body class="markdown-body">
 
     <a href="/">&larr; home</a>
-    <h2>File format</h2>
+    <h2>Time Streams Day Archive Format</h2>
     <p>
-      Complying with the protocol described previously is sufficient to implement
-      a Time Streams server. In addition, there is a Time Streams Day Archive
+      Complying with the Time Streams protocol is sufficient to implement
+      a compatible server. In addition, there is a Time Streams Day Archive
       file format that is useful for file-based servers, or as a standard for
-      importing and exporting full archives. (The
+      importing and exporting archives.
+    </p>
+    <p>The
       <a href="https://github.com/jkriss/time-streams">node.js implementation</a>
-      uses this as its on-disk storage format.)
+      uses this as its on-disk storage format, and converters exist for
+      <a href="https://github.com/jkriss/instagram-time-streams" target="_blank">Instagram</a>,
+      <a href="https://github.com/jkriss/pinboard-time-streams" target="_blank">Pinboard</a>,
+      and <a href="https://github.com/jkriss/notabli-time-streams" target="_blank">Notabli</a>.
     </p>
 
     <h3>Directory structure</h3>
@@ -48,9 +53,9 @@
     </p>
 
     <p>
-      If no time is present in the filename, the day fragment will be the only
-      time information. The server should sort first by time, and then lexicographic order.
-      Time stream data stores should generate a post name if none is provided.
+      If no time is present in the filename, the time fragment is assumed to be
+      <code>000000Z</code>. The store should sort first by time, and then lexicographic order.
+      Time Stream data stores should generate a post name if none is provided.
     </p>
 
     <p>
@@ -71,8 +76,7 @@
 
     <p>
       On the other end of the spectrum, if it's possible that multiple files
-      are generated per second, and the ordering within a single second is meaningful,
-      then the store should generate names that sort properly. (<a href="https://github.com/ulid/spec"
+      are generated per second&mdash;and if the ordering within a single second is meaningful&mdash;then the store should generate names that sort properly. (<a href="https://github.com/ulid/spec"
       target="_blank">ulid</a> is a nice example of a name generation technique with the desired properties.)
     </p>
 
@@ -88,6 +92,8 @@
        051121Z-01EBJBSPBA3BAMAHS9RQDDK83H.txt
        051121Z-01EBJBSPBA3BAMAHS9RQDDK83I.txt
 </pre>
+
+    <a href="/">&larr; home</a>
 
   </body>
 </html>

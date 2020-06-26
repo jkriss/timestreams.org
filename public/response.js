@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', async () => {
-  const url = document.querySelector('#timestream-url').innerHTML
+  const url = document.querySelector('#timestream-url').innerText
   const res = await fetch(url)
   const lines = []
   lines.push(`HTTP/1.1 ${res.status} ${res.statusText}`)
