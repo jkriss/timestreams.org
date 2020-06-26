@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Time Streams</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href=
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2MQERH5DwABuAE8RBfWTAAAAABJRU5ErkJggg==">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="markdown-body">
+
+    <a href="/">&larr; home</a>
+    <h2>File format</h2>
+    <p>
+      Complying with the protocol described previously is sufficient to implement
+      a Time Streams server. In addition, there is a Time Streams Day Archive
+      file format that is useful for file-based servers, or as a standard for
+      importing and exporting full archives. (The
+      <a href="https://github.com/jkriss/time-streams">node.js implementation</a>
+      uses this as its on-disk storage format.)
+    </p>
+
+    <h3>Directory structure</h3>
+
+    <p>
+      The directory for a stream has a <code>.timestream</code> suffix. For example, a
+      stream called <code>statuses</code> would exist at <code>statuses.timestream</code>.
+    </p>
+
+    <p>
+      Posts are organized in directories following the <code>YYYY/MM/DD</code> format
+      based on the UTC day of the post.
+    </p>
+
+    <h3>File names</h3>
+
+    <p>
+      Post files have a name and an optional time prefix, delimited by a <code>-</code>
+      character, and a file extension representing the content type. The time is
+      an <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>
+      time fragment in UTC time formatted <code>HHmmssZ</code>, without punctuation (the "basic" form).
+    </p>
+
+    <p>
+      For example, a text post generated at Wed, 24 Jun 2020 05:12:53 GMT with the name
+      <code>hi</code> would be stored at <code>2020/06/24/051253Z-hi.txt</code>.
+    </p>
+
+    <p>
+      If no time is present in the filename, the day fragment will be the only
+      time information. The server should sort first by time, and then lexicographic order.
+      Time stream data stores should generate a post name if none is provided.
+    </p>
+
+    <p>
+      In combination, these rules lend themselves well to managing day-resolution
+      streams by hand. For instance, if you have a blog stored as a time stream,
+      you could structure it like this:
+    </p>
+
+<pre>blog.timestream/
+   2020/
+     06/
+        23/
+           01-first-post.md
+           02-second-post-on-the-first-day.md
+        24/
+           01-third-post.md
+</pre>
+
+    <p>
+      On the other end of the spectrum, if it's possible that multiple files
+      are generated per second, and the ordering within a single second is meaningful,
+      then the store should generate names that sort properly. (<a href="https://github.com/ulid/spec"
+      target="_blank">ulid</a> is a nice example of a name generation technique with the desired properties.)
+    </p>
+
+    <p>
+      In that case, the directory structure might look something like this:
+    </p>
+
+<pre>posts.timestream/
+2020/
+ 06/
+    24/
+       051121Z-01EBJBSPBA3BAMAHS9RQDDK83G.txt
+       051121Z-01EBJBSPBA3BAMAHS9RQDDK83H.txt
+       051121Z-01EBJBSPBA3BAMAHS9RQDDK83I.txt
+</pre>
+
+  </body>
+</html>

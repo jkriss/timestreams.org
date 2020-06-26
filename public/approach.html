@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Time Streams</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href=
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2MQERH5DwABuAE8RBfWTAAAAABJRU5ErkJggg==">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="markdown-body">
+    <a href="/">&larr; home</a>
+    <h2>Approach</h2>
+
+    <p>
+      <strong>We want something simple.</strong> It should be both easy to
+      understand, and relatively easy to implement.
+    </p>
+
+    <p>
+      <strong>We want to invent as little as possible.</strong> We have well
+      understood, well adopted, and well supported tools that can do nearly
+      all of what we need.
+    </p>
+
+    <hr>
+
+    <p>
+      The Time Streams protocol uses HTTP, three HTTP headers, and
+      one optional query string parameter. There are no new formats, data types,
+      or custom schemas. It can be implemented as an enhancement on top of a
+      standard HTTP server.
+    </p>
+
+    <p>
+      Fetching a single post is a regular HTTP call. The javascript client for
+      fetching multiple posts in a stream is well under 1KB minified and gzipped,
+      and it contains some fancy features.
+    </p>
+
+    <p>
+      This site is running on such a server. The examples you see are live Time
+      Stream responses.
+    </p>
+
+    <a href="/response">The Time Stream response &rarr;</a>
+
+  </body>
+</html>

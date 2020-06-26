@@ -7,12 +7,39 @@
 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2MQERH5DwABuAE8RBfWTAAAAABJRU5ErkJggg==">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="./statuses.js" charset="utf-8"></script>
+    <style media="screen">
+      #status-feed {
+        background: #fafafa;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+      }
+      .status {
+        margin-bottom: 0.5rem;
+      }
+      .status .date {
+        color: #aaa;
+        font-size: 0.8rem;
+      }
+    </style>
   </head>
   <body class="markdown-body">
-    <h2>Status feed</h2>
+
+    <a href="/">&larr; home</a>
+    <h2>Traversing history</h2>
+
     <p>
-      This starts at <a href="/status">/status</a> and traverses backwards to build a feed.
+      By starting at the feed url and following the <code>rel=previous</code> urls, you
+      can walk backwards in time and build up a feed.
     </p>
-    <div id="status-feed"></div>
+
+    <p>
+      This example starts at <code><a href="/status">/status</a></code> and traverses backwards to build a feed.
+    </p>
+
+    <p>
+      <div id="status-feed"></div>
+    </p>
+
+    <a href="/query">Query by time &rarr;</a>
   </body>
 </html>

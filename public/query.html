@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Time Streams</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href=
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2MQERH5DwABuAE8RBfWTAAAAABJRU5ErkJggg==">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./query.js" charset="utf-8"></script>
+    <style media="screen">
+      .example {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body class="markdown-body">
+
+    <a href="/">&larr; home</a>
+    <h2>Query by time</h2>
+    <p>
+      In addition to starting at the latest feed, you can pass a <code>before</code>
+      query string parameter to get the newest post before that date. This date
+      must be in the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> UTC format, but can be partial, e.g. <code>2020-06-24T05:12:53</code>,
+      <code>2020-06-24T05:12</code>, and <code>2020-06</code> are all valid.
+    </p>
+
+    <div class="example">
+      <code id="req1"><a href="/status">/status</a></code>
+      &rarr;
+      <code id="res1"></code>
+    </div>
+
+    <div class="example">
+      <code id="req2"><a href="/status?before=2020-06-24T05:12:53">/status?before=2020-06-24T05:12:53</a></code>
+      &rarr;
+      <code id="res2"></code>
+    </div>
+
+    <p>
+      This is useful for navigating archives by date, without having to start at
+      the beginning and walk backwards.
+    </p>
+
+    <p>
+      If the <code>before</code> date is earlier than the earliest post, the
+      server returns a 404 Not Found response.
+    </p>
+
+
+  </body>
+</html>

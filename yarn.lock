@@ -5232,16 +5232,18 @@ through2@^2.0.0, through2@~2.0.3:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
 
-time-streams@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/time-streams/-/time-streams-0.0.6.tgz#76563fb0d48ba4b48814f59f41d9fdd879beafb0"
-  integrity sha512-n+8bC3g/GOT4+3pdCiha4A/sSR1T6nGCdaMGU2LGYAZsCG2/ULycipXt1Sbu5md3S5Ys/vJuvS6fe/rlIrqh5A==
+time-streams@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/time-streams/-/time-streams-0.0.11.tgz#06ed54a95614833fc3d9b6e31a85a6c4ba1fd80a"
+  integrity sha512-z4PbIxoyar9TdRJuei425X+zpb1BD1lenwugQ2RacfHkfSX/UtJAoToppjdMWUNbC4G1Lz9VjwCy8IBwlk3lSQ==
   dependencies:
     base32.js "^0.1.0"
     body-parser "^1.19.0"
+    compression "^1.7.4"
     cors "^2.8.5"
     dayjs "^1.8.28"
     etag "^1.8.1"
+    express "^4.17.1"
     fast-glob "^3.2.4"
     fs-extra "^9.0.1"
     http-link-header "^1.0.2"
