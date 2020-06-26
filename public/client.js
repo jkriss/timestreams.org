@@ -30,7 +30,6 @@ async function getMessage(url) {
   const res = await fetch(url)
   if (res.ok) {
     let data
-    let url
     const type = res.headers.get('content-type')
     const links = parseLinkHeader(res.headers.get('link'))
     const permalink = links.find(link => link.rel === 'self').url
@@ -41,11 +40,10 @@ async function getMessage(url) {
     } else if (type.includes('json')) {
       data = await res.json()
     } else if (type.includes('image')) {
-      url = URL.createObjectURL(await res.blob())
-      data = `<a href="${url}"><img src="${url}"></a>`
+      data = `<a href="${permalink}"><img src="${permalink}"></a>`
     }
     const date = res.headers.get('post-time')
-    return { body: data, contentType: type, date, t: new Date(date), url, links, permalink }
+    return { body: data, contentType: type, date, t: new Date(date), links, permalink }
   } else {
     console.warn(res.status)
   }
