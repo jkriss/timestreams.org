@@ -48,6 +48,12 @@
     </p>
 
     <p>
+      Servers that don't support bulk fetch should return an HTTP status of
+      <code>406 Not Acceptable</code> when a client includes the
+      <code>Accept: multipart/form-data</code> header.
+    </p>
+
+    <p>
       This example queries <code><a href="/status">/status</a></code> and extracts
       each individual post from the combined response.
     </p>
