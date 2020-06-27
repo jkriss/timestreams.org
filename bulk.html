@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Time Streams</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href=
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2MQERH5DwABuAE8RBfWTAAAAABJRU5ErkJggg==">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./fecha.min.js" charset="utf-8"></script>
+    <script src="./client2.js" charset="utf-8"></script>
+    <script src="./bulk.js" charset="utf-8"></script>
+    <style media="screen">
+      #status-feed {
+        background: #fafafa;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+      }
+      .status {
+        margin-bottom: 0.5rem;
+      }
+      .status .date {
+        color: #aaa;
+        font-size: 0.8rem;
+      }
+      .status img {
+        max-width: 200px;
+      }
+    </style>
+  </head>
+  <body class="markdown-body">
+
+    <a href="/">&larr; home</a>
+    <h2>Bulk fetch</h2>
+
+    <p>
+      Instead of traversing one by one, the server can send a <code>multipart/form-data</code>
+      response that contains multiple posts in a single HTTP response. This
+      response type is sent when the request includes an <code>Accept: multipart/form-data</code>
+      header.
+    </p>
+
+    <p>
+      The multipart response won't necessarily contain all posts. If the last
+      post in the response has a <code>rel=previous</code> entry in the <code>Link</code>
+      header, then you can make another request to that url, and pass the
+      <code>Accept: multipart/form-data</code> header once again to get the
+      next set.
+    </p>
+
+    <p>
+      This example queries <code><a href="/status">/status</a></code> and extracts
+      each individual post from the combined response.
+    </p>
+
+    <p>
+      <div id="status-feed"></div>
+    </p>
+
+    <a href="/query">Query by time &rarr;</a>
+  </body>
+</html>

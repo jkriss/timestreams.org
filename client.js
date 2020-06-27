@@ -26,14 +26,14 @@ function parseLinkHeader(header) {
    .map(parseLink)
 }
 
-async function getMessage(url) {
-  const res = await fetch(url)
+async function getMessage(requestUrl) {
+  const res = await fetch(requestUrl)
   if (res.ok) {
     let data
     let url
     const type = res.headers.get('content-type')
     const links = parseLinkHeader(res.headers.get('link'))
-    const permalink = links.find(link => link.rel === 'self').url
+    const permalink = new URL(links.find(link => link.rel === 'self').url, requestUrl)
     if (!links) throw new Error('No valid Link header')
     if (!type) throw new Error('content-type header required')
     if (type.includes('text/plain')) {
@@ -55,17 +55,19 @@ async function getMessages(streamUrl, max=20) {
   const messages = []
   let m
   let url = streamUrl
+  // make it absolute if it's not already,
+  // this makes our lives a lot easier when
+  // resolving links
+  if (!url.match(/^http/)) {
+    url = new URL(url, window.location.href)
+  }
   do {
     m = await getMessage(url)
     if (m) {
       messages.push(m)
       const prev = m.links.find(link => link.rel === 'previous')
       const urlStr = prev ? prev.url : null
-      if (streamUrl.match(/^http/)) {
-        url = urlStr && new URL(urlStr, streamUrl)
-      } else {
-        url = urlStr
-      }
+      url = urlStr && new URL(urlStr, url)
     }
   } while (messages.length < max && m && url)
   return messages

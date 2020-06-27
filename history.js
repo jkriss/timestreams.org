@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', async () => {
-  const messages = await TimeStreams.getMessages('/status')
+  const messages = await TimeStreams.getMessages('./status')
   const el = document.querySelector('#status-feed')
   const h = messages.map(m => `
     <div class="status">
