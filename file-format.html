@@ -58,6 +58,22 @@
       Time Stream data stores should generate a post name if none is provided.
     </p>
 
+    <h3>Related files</h3>
+
+    <p>
+      Related files are stored with the format<code>[main post id]$[relation].[ext]</code>.
+      That is, a metadata file describing <code>01-first-post.md</code> could be stored at
+      <code>01-first-post.md$describedby.json</code>.
+    </p>
+
+    <p>
+      Related files should not be returned in regular <code>previous</code>-style traversal
+      or by <code>before</code> date queries. They should be surfaced via <code>Link</code>
+      headers on the primary post, and can be fetched directly by id.
+    </p>
+
+    <h3>Example</h3>
+
     <p>
       In combination, these rules lend themselves well to managing day-resolution
       streams by hand. For instance, if you have a blog stored as a time stream,
@@ -69,6 +85,7 @@
      06/
         23/
            01-first-post.md
+           01-first-post.md$describedby.json
            02-second-post-on-the-first-day.md
         24/
            01-third-post.md
