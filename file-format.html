@@ -72,6 +72,27 @@
       headers on the primary post, and can be fetched directly by id.
     </p>
 
+    <h3>Attributes</h3>
+
+    <p>
+      Additional attributes for any given post or related file are stored in a <code>.attributes</code>
+      file, with a string matching the attributes portion of a <code>Link</code> header entry. For the
+      post itself, the suffix <code>$self.attributes</code> is used.
+    </p>
+    <p>For example, an image file stored at
+      <code>2020/07/20/my-photo.jpg</code> could have a corresponding <code>2020/07/20/my-photo.jpg$self.attributes</code>
+      file with content <code>title="San Francisco cityscape with a view of Sutro Tower"</code>.
+      When fetched via HTTP, the response would have a link header containing
+      <code>&lt;post-id&gt;; rel=self, title="San Francisco cityscape with a view of Sutro Tower"</code>.
+    </p>
+
+    <p>
+      Among other things, this gives us the option to specify post title without having to load a separate url.
+      It can also be used to give standard relations (like <code>describedby</code>) more user friendly labels
+      for display, like <code>description</code>. The <a href="https://tools.ietf.org/html/rfc8288">Web Linking</a>
+      RFC includes a method for specifying different character sets and languages.
+    </p>
+
     <h3>Example</h3>
 
     <p>
@@ -84,9 +105,11 @@
    2020/
      06/
         23/
-           01-first-post.md
-           01-first-post.md$describedby.json
-           02-second-post-on-the-first-day.md
+          01-first-post.md
+          01-first-post.md$self.attributes
+          01-first-post.md$describedby.json
+          01-first-post.md$describedby.json.attributes
+          02-second-post-on-the-first-day.md
         24/
            01-third-post.md
 </pre>
